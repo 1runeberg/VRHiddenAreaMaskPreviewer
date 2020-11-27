@@ -1,7 +1,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2020 Rune Berg
+Copyright (c) 2020 Rune Berg (https://github.com/1runeberg)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
