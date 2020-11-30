@@ -15,7 +15,7 @@
 
 // Set defaults
 color drawColor = #000000;  // black
-float strokeWeight = .03; 
+float strokeWeight = .05; 
 PVector shapeScale = new PVector(150, -150);  // Flipping on Y-Axis for OpenXR
 
 // Initialize shapes to draw on-screen
@@ -27,9 +27,10 @@ PShape mask_lineloop_left, mask_lineloop_right;
 void draw_vertices(PShape mask, int kind, float[] verts, String eye)
 {
     // Set shape style
-    mask.beginShape(kind);    
+    mask.beginShape();    
     mask.stroke(drawColor);
     mask.strokeWeight(strokeWeight);
+    mask.strokeCap(PROJECT);
     
     // Add vertices to our mask
     for (int i = 0; i < verts.length; i+=2) 
@@ -39,7 +40,7 @@ void draw_vertices(PShape mask, int kind, float[] verts, String eye)
     }
     
     // Finalize shape
-    mask.endShape();
+    mask.endShape(CLOSE);
     
     // Rescale
     mask.scale(shapeScale.x, shapeScale.y);    
@@ -83,7 +84,7 @@ void draw() {
   translate(300, 242);
   shape(mask_vis_left);
   
-  translate(300, 0);
+  translate(280, 0);
   shape(mask_vis_right);
   
   
