@@ -26,8 +26,17 @@ PShape mask_lineloop_left, mask_lineloop_right;
 // Helper function to translate array of floats to vertex coords and added them to a shape
 void draw_vertices(PShape mask, int kind, float[] verts, String eye)
 {
-    // Set shape style
-    mask.beginShape();    
+    // Draw style
+    if (kind == LINES) 
+    {  
+      mask.beginShape(); // Line loop
+    }
+    else 
+    {
+      mask.beginShape(kind);  
+    }
+    
+    // Set shape style  
     mask.stroke(drawColor);
     mask.strokeWeight(strokeWeight);
     mask.strokeCap(PROJECT);
@@ -71,8 +80,8 @@ void setup()
   
   // Draw masks' line loop
   drawColor = #FFCC00;
-  draw_vertices(mask_lineloop_left, POINTS, verts_lineloop_left, "left (line loop)");
-  draw_vertices(mask_lineloop_right, POINTS, verts_lineloop_right, "right (line loop)");
+  draw_vertices(mask_lineloop_left, LINES, verts_lineloop_left, "left (line loop)");
+  draw_vertices(mask_lineloop_right, LINES, verts_lineloop_right, "right (line loop)");
 
 }
 
